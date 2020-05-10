@@ -21,7 +21,7 @@ Here's an example how it can be assembled:
 
 # Rules
 You start as a pixel on the right(or on the left, if assembled incorrectly). Each level has one or more trap -- blinking pixels. Each button press moves you forward. However, if there's a trap on the next cell you either jump over it, if it's open, or... die. A trap is open if an LED is off, and closed if it's on. If there are several adjasent traps, you jump over all of them, that's why all of them must be open when you push the button.
-If/when you loose, the sceen will show position you died at, then(after a button press) your level encoded in binary(that's a limitation of only having 8 pixels). And then you start a new game.
+If/when you loose, the screen will show position you died at, then(after a button press) your level encoded in binary(that's a limitation of only having 8 pixels). And then you start a new game.
 Good luck to see what happens when you finish all 255 levels.
 
 # Gameplay
