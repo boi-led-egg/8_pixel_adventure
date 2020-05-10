@@ -25,4 +25,4 @@ If/when you loose, the sceen will show position you died at, then(after a button
 Good luck to see what happens when you finish all 255 levels.
 
 # Gameplay
-Here's a recording of a gameplay: https://www.youtube.com/watch?v=nMz62VkPqow
+Here's a recording of a gameplay: https://youtu.be/8PoZcoDHj3E
