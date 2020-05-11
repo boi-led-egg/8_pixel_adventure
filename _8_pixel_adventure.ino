@@ -159,6 +159,7 @@ struct Trap {
 void loop(){
   // game loop
   draw_byte(0b11111111);
+  delay(200);
   for (int level = 0; level <= 255; level++) {
     level_begin_animation();
     // init level
@@ -188,9 +189,6 @@ void loop(){
       } else if (trap[position].planted) {
         if (!is_trap_active(trap[position].state)) {
           position += 1;
-          // some jump animation
-          draw_byte(1 << position);
-          delay(50);
           continue;
         } else {
           defeat_loop(position);
@@ -202,10 +200,8 @@ void loop(){
       for (int i = 0; i < 8; i++) {
         trap[i].state = (trap[i].state + trap[i].freq) % 16384;
       }
-      // world state to draw
-      int world = 0;
-      // add player
-      world = world | (1 << position);
+      // world state to draw. Start with a player
+      int world = 1 << position;
       // draw traps
       for (int i = 0; i < 8; i++) {
         if (trap[i].planted) {
