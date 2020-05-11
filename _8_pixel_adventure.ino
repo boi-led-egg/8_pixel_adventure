@@ -3,12 +3,6 @@ const int led_pin[8] = {2, 3, 4, 5, 6, 7, 8, 9}; // D2-D9 for output
 // button must be released to register next push
 bool button_released = false;
 
-struct Trap {
-  uint16_t freq; // activation frequency
-  uint16_t state; // open or closed will be calculated from this value
-  bool planted; // if there's a trap
-};
-
 // output a byte to 8 LEDs
 void draw_byte(uint8_t b) {
   for (uint8_t i = 0; i < 8; i++) {
@@ -156,6 +150,12 @@ void setup() {
   randomSeed(analogRead(0));
 }
 
+struct Trap {
+  uint16_t freq; // activation frequency
+  uint16_t state; // open or closed will be calculated from this value
+  bool planted; // if there's a trap
+};
+
 void loop(){
   // game loop
   draw_byte(0b11111111);
@@ -173,6 +173,7 @@ void loop(){
       int position = random(1, 7);
       // difficulty adjustment
       trap[position].freq = random(64, 256) + level;
+      trap[position].state = random(16384);
       trap[position].planted = true;
     }
     // level loop
