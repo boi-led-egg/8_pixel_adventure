@@ -90,17 +90,13 @@ void defeat_loop(int position) {
 // show final score in binary
 void final_score_loop(int score) {
   int disp = 0;
-  int blink_freq = 5;
-  int counter = 0;
   while (true) {
-    if (counter++ % blink_freq == 0) {
-      disp = disp ^ score;
-      draw_byte(disp);
-    }
     if (check_button()) {
       return;
     }
-    delay(10);
+    disp = disp ^ score;
+    draw_byte(disp);
+    delay(20);
   }
 }
 
@@ -117,13 +113,11 @@ void fireworks_loop() {
       draw_byte(0);
       delay(counter);
     } else {
-      
       draw_byte(1 << position);
       delay(counter);
       draw_byte(0);
-      delay(16-counter);
+      delay(16 -counter);
     }
-    
     counter++;
     if (counter == magic) {
       counter = 0;
